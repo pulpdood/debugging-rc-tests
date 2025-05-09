@@ -1,6 +1,8 @@
+import { PrismaClient } from '@prisma/client';
 import { getPrismaDBClient } from '../../resources/db';
+import { getTodosByName } from './nested/nested';
 
-let prismaClient;
+let prismaClient : PrismaClient;
 
 async function getPrismaClient() {
     if (!prismaClient) {
@@ -13,7 +15,8 @@ void getPrismaClient();
 
 export const getTodos = async () => {
     const todos = await prismaClient.todo.findMany();
-    return todos;
+    const todosByName = await getTodosByName("test");
+    return [...todos, ...todosByName];
 };
 
 export const createTodo = async (data) => {
