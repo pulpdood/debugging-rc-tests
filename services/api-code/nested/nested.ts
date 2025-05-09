@@ -1,6 +1,7 @@
+import { PrismaClient } from '@prisma/client';
 import { getPrismaDBClient } from '../../../resources/db';
 
-let prismaClient;
+let prismaClient: PrismaClient;
 
 async function getPrismaClient() {
     if (!prismaClient) {
