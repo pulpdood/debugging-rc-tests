@@ -1,14 +1,7 @@
-import { api } from "@nitric/sdk";
-import { getPrismaDBClient } from "../resources/db";
+// defer importing the API until after config has been loaded.
+//     this is required due to config loading secrets async
+const startPortalApi = async () => {
+    await import('./api-code');
+}
 
-const mainApi = api("main");
-
-mainApi.get("/test", async (ctx) => {
-  const prisma = await getPrismaDBClient();
-
-  const todos = await prisma.todo.findMany();
-
-  ctx.res.body = todos;
-
-  return ctx;
-});
+void startPortalApi();
