@@ -1,7 +1,7 @@
 name: test-action-issue
 services:
     - basedir: ""
-      match: services/*.ts
+      match: services/*-api.ts
       runtime: node
       start: npm run dev:services $SERVICE_PATH
 batch-services: []

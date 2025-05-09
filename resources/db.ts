@@ -4,7 +4,7 @@ let prisma: PrismaClient;
 
 import { sql } from "@nitric/sdk";
 
-const db = sql("rc-core", {
+const db = sql("todos", {
   migrations: "dockerfile://migrations.dockerfile",
 });
 

@@ -1,7 +1,7 @@
 // defer importing the API until after config has been loaded.
 //     this is required due to config loading secrets async
-const startPortalApi = async () => {
-    await import('./api-code');
+const startCode2Api = async () => {
+  await import('./code-2');
 }
 
-void startPortalApi();
+void startCode2Api();
